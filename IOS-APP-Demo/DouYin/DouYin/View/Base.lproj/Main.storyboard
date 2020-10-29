@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -546,31 +545,31 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3yM-T4-gVy">
                                                     <rect key="frame" x="0.0" y="30" width="414" height="80"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="do7-mr-sHC">
-                                                            <rect key="frame" x="8" y="8" width="400" height="68"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="do7-mr-sHC">
+                                                            <rect key="frame" x="8" y="8" width="550" height="48"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-jd-bAG" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="68"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="73" height="48"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="微博" image="icon_profile_share_weibo"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kma-7K-JYE" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="88" y="0.0" width="48" height="68"/>
+                                                                    <rect key="frame" x="113" y="0.0" width="73" height="48"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="微信" image="icon_profile_share_wechat"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Oy-m7-392" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="176" y="0.0" width="48" height="68"/>
+                                                                    <rect key="frame" x="226" y="0.0" width="85" height="48"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="朋友圈" image="icon_profile_share_wxTimeline"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-0g-tJk" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="264" y="0.0" width="48" height="68"/>
+                                                                    <rect key="frame" x="351" y="0.0" width="67" height="48"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="QQ" image="icon_profile_share_qq"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-TR-1Jg" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="352" y="0.0" width="48" height="68"/>
+                                                                    <rect key="frame" x="458" y="0.0" width="92" height="48"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="QQ空间" image="icon_profile_share_qqZone"/>
                                                                 </button>
@@ -580,8 +579,6 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="6Om-pf-Qrj"/>
-                                                        <constraint firstItem="do7-mr-sHC" firstAttribute="leading" secondItem="Wfv-lf-Cum" secondAttribute="leading" constant="8" id="FmO-Eu-Sch"/>
-                                                        <constraint firstItem="do7-mr-sHC" firstAttribute="top" secondItem="Wfv-lf-Cum" secondAttribute="top" constant="8" id="ihW-KM-Hl3"/>
                                                     </constraints>
                                                     <viewLayoutGuide key="contentLayoutGuide" id="gJT-ya-TKe"/>
                                                     <viewLayoutGuide key="frameLayoutGuide" id="Wfv-lf-Cum"/>
@@ -589,31 +586,31 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEH-Jm-pIs">
                                                     <rect key="frame" x="0.0" y="109" width="414" height="80"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="juN-pV-7HD">
-                                                            <rect key="frame" x="8" y="8" width="405" height="69"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="juN-pV-7HD">
+                                                            <rect key="frame" x="8" y="8" width="554" height="49"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyY-Td-ol3" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="69"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="74" height="49"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="举报" image="icon_home_allshare_report"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OQ-B2-mig" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="89" y="0.0" width="49" height="69"/>
+                                                                    <rect key="frame" x="114" y="0.0" width="74" height="49"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="保存" image="icon_home_allshare_download"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFi-M3-4ol" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="178" y="0.0" width="48" height="69"/>
+                                                                    <rect key="frame" x="228" y="0.0" width="73" height="49"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="收藏" image="iconHomeAllshareCollection1_Normal"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7F-GY-a7b" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="266" y="0.0" width="50" height="69"/>
+                                                                    <rect key="frame" x="341" y="0.0" width="99" height="49"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="复制链接" image="icon_home_allshare_copylink"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-d9-FjU" customClass="VerticalButton" customModule="DouYin" customModuleProvider="target">
-                                                                    <rect key="frame" x="356" y="0.0" width="49" height="69"/>
+                                                                    <rect key="frame" x="480" y="0.0" width="74" height="49"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="删除" image="icon_home_allshare_delete"/>
                                                                 </button>
@@ -623,8 +620,6 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="CC2-nN-PSV"/>
-                                                        <constraint firstItem="juN-pV-7HD" firstAttribute="top" secondItem="xz3-oh-dfy" secondAttribute="top" constant="8" id="UqW-hg-AEW"/>
-                                                        <constraint firstItem="juN-pV-7HD" firstAttribute="leading" secondItem="xz3-oh-dfy" secondAttribute="leading" constant="8" id="oVH-Kr-81G"/>
                                                     </constraints>
                                                     <viewLayoutGuide key="contentLayoutGuide" id="HLK-Me-etD"/>
                                                     <viewLayoutGuide key="frameLayoutGuide" id="xz3-oh-dfy"/>
@@ -713,55 +708,40 @@
             </objects>
             <point key="canvasLocation" x="2011.594202898551" y="79.6875"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qUM-3D-ywi">
-            <objects>
-                <viewController id="bu8-Fc-yqL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hRI-RA-NPE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="r1m-Vn-1UT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="esN-4R-izP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1320" y="-593"/>
-        </scene>
     </scenes>
     <designables>
         <designable name="2OQ-B2-mig">
-            <size key="intrinsicContentSize" width="49" height="69"/>
+            <size key="intrinsicContentSize" width="74" height="49"/>
         </designable>
         <designable name="4Oy-m7-392">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="85" height="48"/>
         </designable>
         <designable name="A0x-d9-FjU">
-            <size key="intrinsicContentSize" width="49" height="69"/>
+            <size key="intrinsicContentSize" width="74" height="49"/>
         </designable>
         <designable name="KyY-Td-ol3">
-            <size key="intrinsicContentSize" width="49" height="69"/>
+            <size key="intrinsicContentSize" width="74" height="49"/>
         </designable>
         <designable name="N7F-GY-a7b">
-            <size key="intrinsicContentSize" width="50" height="69"/>
+            <size key="intrinsicContentSize" width="99" height="49"/>
         </designable>
         <designable name="YRK-ej-4TD">
             <size key="intrinsicContentSize" width="82.5" height="18"/>
         </designable>
         <designable name="kma-7K-JYE">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="73" height="48"/>
         </designable>
         <designable name="rR5-TR-1Jg">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="92" height="48"/>
         </designable>
         <designable name="rgt-jd-bAG">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="73" height="48"/>
         </designable>
         <designable name="uOh-0g-tJk">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="67" height="48"/>
         </designable>
         <designable name="vFi-M3-4ol">
-            <size key="intrinsicContentSize" width="48" height="68"/>
+            <size key="intrinsicContentSize" width="73" height="48"/>
         </designable>
     </designables>
     <resources>
@@ -789,8 +769,5 @@
         <namedColor name="myPink">
             <color red="1" green="0.17254901960784313" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

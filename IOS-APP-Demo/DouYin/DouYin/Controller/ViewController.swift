@@ -119,6 +119,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         dataFrom(local: true)
         
+        // 加入一个通知，当app进入后台要有的操作，这里让视频暂停
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 }
@@ -133,6 +134,7 @@ extension ViewController {
 }
 
 extension ViewController {
+    // 减速停止
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pausePlayerVideos()
         
@@ -141,6 +143,7 @@ extension ViewController {
         
         print("当前可见行: ", tableView.indexPathsForVisibleRows!)
         
+        // 获取视频
         if currentPage == (awemeList.count - 1) {
             OperationQueue.main.addOperation {
                 print("开始获取新视频")
@@ -155,13 +158,14 @@ extension ViewController {
     }
     
     
+    // scroll停止时，暂停视频
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.pausePlayerVideos()
         }
     }
     
-    // 当cell被移除时
+    // 当cell被移除时，移除视频层，实现cell的复用
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
             ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)

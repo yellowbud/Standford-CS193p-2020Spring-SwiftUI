@@ -159,6 +159,7 @@ class VideoCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
         }
     }
     
+    // 1.视频有值了，对播放器进行初始化
     var videoLayer = AVPlayerLayer()
     var videoURL: String? {
         didSet {
@@ -237,7 +238,7 @@ class VideoCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
         //        print("视频层frame：",videoLayer.frame)
     }
     
-    // 计算可见的视频层高度，以便播放在可视范围内的cell
+    // 2.计算可见的视频层高度，以便播放在可视范围内的cell
     /// - REturns: 可见的视频层高度
     func visibleVideoHeight() -> CGFloat {
         let videoFrameInParentSuperView = superview?.superview?.convert(coverImageView.frame, from: coverImageView)
@@ -251,7 +252,7 @@ class VideoCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
         return visibleVideoFrame.size.height
     }
 
-    // 视频暂停/播放奇幻按钮的动画
+    // 视频暂停/播放按钮的动画
     /// - Parameter rate: 视频播放速率
     func showPauseViewAnim(rate: Float) {
         if rate == 0 {

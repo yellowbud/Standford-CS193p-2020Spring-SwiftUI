@@ -255,13 +255,103 @@
 
     <img src="DouYinProjectMaterial/markdownImage/image-20201020172021019.png" alt="image-20201020172021019" style="zoom:40%;" />
 
-12. **Verticalbutton 上图下字垂直居中**
+12. [**自定义 button 上图下字垂直居中**](https://www.jianshu.com/p/4603e9bbba56)
 
-    待研究，见`VerticalButton.swift`
+    `UIButton`的另一个重要的属性就是`UIEdgeInsets`，称之为偏移量，分别有`contentEdgeInsets，imageEdgeInsets，titleEdgeInsets`三个相关属性。
+    默认情况下：
 
-13. **视频播放**
+    - contentEdgeInsets 的 top、left、bottom、right都是相对于button本身，控制着image和title整体的偏移量；
+    - imageEdgeInsets 的 top、left、bottom相对于button，right相对于title，控制着image的相对偏移量；
+    - titleEdgeInsets 的 top、bottom、right相对于button，left相对于image，控制着title的相对偏移量；
 
-    这个研究出来了再来补充
+13. **ASPlayer框架，视频播放**
+
+    实现视频滑到屏幕中间指定的大小就开始播放AutoVideoPlayer的功能
+    cell里：
+
+    - 在单元格中申明AVPlayerlayer()的变量，一旦视频有了值之后就向视频播放器通过url进行初始化
+
+      ```swift
+      var videoLayer = AVPlayerLayer()
+      var videoURL: String? {
+        didSet {
+          if let videoURL = videoURL {
+            ASVideoPlayerController.sharedVideoPlayer.setupVideoFor(url: videoURL)
+          }
+          videoLayer.isHidden = videoURL == nil
+        }
+      }
+      ```
+
+    - 设置视频的高度，要把视频层页面上可见高度设置为屏幕高度
+
+      ```swift
+      func visibleVideoHeight() -> CGFloat {
+        let videoFrameInParentSuperView = superview?.superview?.convert(coverImageView.frame, from: coverImageView)
+      
+        guard let videoFrame = videoFrameInParentSuperView, let superViewFrame = superview?.frame else {
+          return 0
+        }
+      
+        let visibleVideoFrame = videoFrame.intersection(superViewFrame)
+        print("视频可见高度： ", visibleVideoFrame.size.height)
+        return visibleVideoFrame.size.height
+      }
+      ```
+
+    controll里：
+
+    - viewDidLoad里加入一个通知，是的app进入后台的时候暂停视频播放
+
+      ```swift
+      NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: UIApplication.willEnterForegroundNotification, object: nil)
+      
+      @objc func appEnteredFromBackground() {
+        ASVideoPlayerController.sharedVideoPlayer.pausePlayeVideosFor(tableView: tableView, appEnteredFromBackground: true)
+      }
+      ```
+
+    - 当一个播放页面从页面上移除时，即滑动到下一页时，把播放页移除，实现cell的复用
+
+      ```swift
+      func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
+          ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)
+        }
+      }
+      ```
+
+    - scroll停止时，暂停视频
+
+      ```swift
+      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+          self.pausePlayerVideos()
+        }
+      }
+      
+      func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pausePlayerVideos()
+      
+        currentPage = tableView.indexPathsForVisibleRows!.last!.row
+      
+        // 获取视频
+        if currentPage == (awemeList.count - 1) {
+          OperationQueue.main.addOperation {
+            print("开始获取新视频")
+            self.videoJsonIndex -= 1
+            let localUrl = URL(string: DouyinURL.baseLocal + self.videoJsonIndex.description + DouyinURL.feedFile)!
+            self.dataFrom(local: true)
+          }
+        }
+      }
+      ```
+
+      注：
+
+      - `scrollViewDidEndDecelerating`表示减速结束了，并不是就一定等于滑动结束了。因为有些滑动并不需要减速也可以结束，比如我两只手轮流向左滑动，直到滑动到scrollview的尽头为止，这个过程的滑动是被迫终止而不是自然减速停止，这样`scrollViewDidEndDecelerating`方法是不会被执行的。
+      - `scrollViewDidEndDragging`是停止拖拉，即手离开屏幕，但手抬起后，可能还会滑行一段时间直到减速停止。所以也不等于滑动结束。
+      - 唯一确定的是`scrollViewDidEndDragging`肯定在`scrollViewDidEndDecelerating`之前，经过判断，如果手抬起后不再减速，即直接停止滑动
 
 
 
@@ -275,12 +365,6 @@
 ### 待实现
 
 1. 分享页面的scrollView左右滑动
-
-### 待研究
-
-1. 视频播放
-2. 视频cell复用
-3. `VerticalButton.swift` button上图下字并居中显示
 
 
 
