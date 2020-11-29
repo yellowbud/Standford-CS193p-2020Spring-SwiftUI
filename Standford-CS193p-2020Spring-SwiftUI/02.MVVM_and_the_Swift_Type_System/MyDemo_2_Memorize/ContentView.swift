@@ -5,7 +5,7 @@ struct ContenView: View{
 	var viewModel: EmojiMemoryGame //就是EmojiMemoryGame这个class
 	var body: some View{
 		HStack{
-			ForEach(viewModel.card){ card in	//Array中获取，所以不需要range了
+			ForEach(viewModel.cards){ card in	//Array中获取，所以不需要range了
 				//onTapGesture(perform: () -> Void)没有参数也没有返回值所以可以省略掉
 				//onTapGesture(perform: {viewModel.choose(card: card)})只有一个argument，省略
 				CardView(card: card).onTapGesture{
