@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContenView: View{
 	var body: some View{	//view必须有body
-		//ZStack填充ForEach，ForEach组成HStack
+		//HStack填充ForEach，ForEach组成HStack
 		HStack{		//HStack水平排列，不加HStack的话会显示出四个页面来
 			ForEach(0..<4){	//四个卡片，0...4包括4，0..<4是0-3
 				CardView(isFaceUp: false)	//初始值false，不初始化会报错
